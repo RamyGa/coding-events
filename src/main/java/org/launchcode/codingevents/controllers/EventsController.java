@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,13 @@ import java.util.List;
 @RequestMapping("events")
 public class EventsController {
 
+
+    private static List<String> events = new ArrayList<>();
+
+
     @GetMapping
     public String displayAllEvents(Model model){
-        List<String> events = new ArrayList<>();
-        events.add("code with pride");
-        events.add("Strange loop");
-        events.add("Apple WWDC");
-        events.add("SpringOne Platform");
+
 
         model.addAttribute("events", events);
 
@@ -37,10 +38,13 @@ public class EventsController {
 
     }
 
-    @PostMapping("create")
-    public String renderCreateEventForm2(){
 
-        return "index";
+
+    @PostMapping("create")
+    public String createEvent(@RequestParam String eventName){
+
+        events.add(eventName);
+        return "redirect:";
 
     }
 
