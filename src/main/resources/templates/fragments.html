@@ -7,14 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <title>coding events</title>
+    <title>Document</title>
 </head>
 
 
 <body>
-<h1>Coding events</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:fragment="navigation">
+    <ul>
+        <li>
+            <a href="/events">all events</a>
+        </li>
+        <li><a href="/events/create">Create Events</a></li>
+    </ul>
+</nav>
+
 
 </body>
 
